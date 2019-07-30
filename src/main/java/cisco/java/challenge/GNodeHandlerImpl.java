@@ -11,7 +11,7 @@ public class GNodeHandlerImpl implements GNodeHandler {
      * @return an ArrayList containing every GNode in the graph.
      * Each node should appear in the ArrayList exactly once.
      */
-    public ArrayList walkGraph(GNode node) {
+    public List walkGraph(GNode node) {
         list = new ArrayList<>();
         list.add(node);
         visitChildren(node.getChildren());
@@ -33,7 +33,7 @@ public class GNodeHandlerImpl implements GNodeHandler {
      * thought of as a ArrayList of paths, where each path is represented as an
      * ArrayList of GNodes
      */
-    public ArrayList paths(GNode node) {
+    public List paths(GNode node) {
         pathList = new ArrayList<>();
         List<GNode> nodeList = new ArrayList<>();
         nodeList.add(node);

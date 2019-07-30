@@ -1,8 +1,8 @@
 package cisco.java.challenge;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface GNodeHandler {
-    ArrayList walkGraph(GNode node);
-    ArrayList paths(GNode node);
+    List walkGraph(GNode node);
+    List paths(GNode node);
 }

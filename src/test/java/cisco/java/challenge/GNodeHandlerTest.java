@@ -5,22 +5,23 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GNodeHandlerTest {
-    static GNode A = new GNodeImpl("A", new GNode[3]);
+   private static GNode A = new GNodeImpl("A", new GNode[3]);
 
-    static GNode B = new GNodeImpl("B", new GNode[2]);
-    static GNode E = new GNodeImpl("E", new GNode[0]);
-    static GNode F = new GNodeImpl("F", new GNode[0]);
+    private static GNode B = new GNodeImpl("B", new GNode[2]);
+    private static GNode E = new GNodeImpl("E", new GNode[0]);
+    private static GNode F = new GNodeImpl("F", new GNode[0]);
 
-    static GNode C = new GNodeImpl("C", new GNode[3]);
-    static GNode G = new GNodeImpl("G", new GNode[0]);
-    static GNode H = new GNodeImpl("H", new GNode[0]);
-    static GNode I = new GNodeImpl("I", new GNode[0]);
+    private static GNode C = new GNodeImpl("C", new GNode[3]);
+    private static GNode G = new GNodeImpl("G", new GNode[0]);
+    private static GNode H = new GNodeImpl("H", new GNode[0]);
+    private static GNode I = new GNodeImpl("I", new GNode[0]);
 
-    static GNode D = new GNodeImpl("D", new GNode[0]);
+    private static GNode D = new GNodeImpl("D", new GNode[0]);
 
-    static GNodeHandler handler  = new GNodeHandlerImpl();
+    private static GNodeHandler handler  = new GNodeHandlerImpl();
 
     @BeforeClass
     public static void runOnceBeforeClass() {
@@ -38,8 +39,7 @@ public class GNodeHandlerTest {
 
     @Test
     public void walkGraphTest() {
-
-        ArrayList list = handler.walkGraph(A);
+        List list = handler.walkGraph(A);
         GNode Z = new GNodeImpl("Z", null);
         Assert.assertTrue(list.contains(A) && list.contains(B) && list.contains(C) && list.contains(D)
                 && list.contains(E) && list.contains(F) && list.contains(G) && list.contains(H) && list.contains(I));
@@ -56,7 +56,7 @@ public class GNodeHandlerTest {
 
     @Test
     public void pathTest() {
-        ArrayList list = handler.paths(A);
+        List list = handler.paths(A);
         Assert.assertEquals(list.size(), 6);
 
         list = handler.paths(C);
@@ -64,9 +64,9 @@ public class GNodeHandlerTest {
 
         list = handler.paths(D);
         Assert.assertEquals(list.size(), 1);
-        ArrayList<GNode> nodelist = new ArrayList<>();
+        List<GNode> nodelist = new ArrayList<>();
         nodelist.add(D);
-        Assert.assertEquals(list.get(0),  new ArrayList<>());
+        Assert.assertEquals(list.get(0),  nodelist);
     }
 
 }
